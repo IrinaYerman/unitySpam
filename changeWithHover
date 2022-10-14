@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class clickableTag : MonoBehaviour
+{   //uses a tag in unity to find the object to highlight. Applied to an empty object or player to run the script.
+    //OnMouseOver() is active as soon as player hovers mouse over the object. As mouse hovers over the object, something happens. In this instance, it changes colors. 
+    //Note: Only works if object has collider. 
+    void OnMouseOver()
+    {
+        //GameObject refers to an object you want to apply the code to. You can use many methods to call to a specific game object, but it's best to use tags 
+        //tags is the best method because unity has a limit on how many layers you can use. 
+        //GameObject.FindWithTage("letter") calls to all objects tagged with "letter. 
+        //Code grabs renderer of the GameObject and changes its color. Here it's bright blue. 
+        GameObject.FindWithTag("letter").GetComponent<Renderer>().material.color = new Color(0, 204, 102);
+
+    }
+
+    // OnMouseExit() is used to do something as soon as mouse exits the object. In this instance, I change it to default color 
+
+    void OnMouseExit()
+    {
+        GameObject.FindWithTag("letter").GetComponent<Renderer>().material.color = new Color(137, 112, 99);
+
+    }
